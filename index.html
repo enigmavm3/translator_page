@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+<meta charset="UTF-8">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-55X3FCV1GY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-55X3FCV1GY');
 </script>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>翻譯小幫手 — LINE 群組即時翻譯</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -122,19 +121,51 @@ section { padding: 52px 20px; }
 .sol-desc { font-size: 15px; font-weight: 600; color: var(--green-dark); margin-bottom: 6px; }
 .sol-detail { font-size: 13px; color: var(--gray); line-height: 1.5; }
 
-/* ═══ DEMO VIDEO ═══ */
-.demo-section { background: var(--warm); }
-.demo-box {
-  max-width: 560px; margin: 0 auto;
-  background: var(--gray-light); border-radius: 16px;
-  aspect-ratio: 16/9;
-  display: flex; align-items: center; justify-content: center;
-  border: 2px dashed #D1D5DB;
+/* ═══ PRICING ═══ */
+.pricing-section { background: var(--warm); }
+.pricing-grid {
+  display: flex; flex-direction: column; gap: 16px;
+  max-width: 540px; margin: 0 auto;
 }
-.demo-box-inner { text-align: center; }
-.demo-play { font-size: 52px; margin-bottom: 8px; }
-.demo-label { font-size: 14px; color: var(--gray); font-weight: 500; }
-.demo-note { font-size: 12px; color: #9CA3AF; margin-top: 2px; }
+.price-card {
+  background: #fff; border-radius: 16px; padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  border: 1px solid #E5E7EB; position: relative;
+  text-align: center;
+}
+.price-card.basic {
+  border: 2px solid var(--green);
+  box-shadow: 0 4px 24px rgba(6,199,85,0.12);
+}
+.price-popular {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--green); color: #fff; font-size: 12px; font-weight: 800;
+  padding: 4px 16px; border-radius: 20px; white-space: nowrap;
+}
+.price-badge {
+  font-size: 15px; font-weight: 700; color: var(--gray);
+  margin-bottom: 8px;
+}
+.price-card.basic .price-badge { color: var(--navy); }
+.price-amount {
+  font-size: 36px; font-weight: 900; color: var(--navy);
+  line-height: 1.2;
+}
+.price-amount span {
+  font-size: 16px; font-weight: 600; color: var(--gray);
+}
+.price-unit {
+  font-size: 13px; color: var(--green-dark); font-weight: 600;
+  margin: 6px 0 16px;
+}
+.price-card.free .price-unit { color: var(--gray); }
+.price-features {
+  list-style: none; padding: 0; text-align: left;
+}
+.price-features li {
+  font-size: 14px; color: #374151; padding: 4px 0;
+  line-height: 1.5;
+}
 
 /* ═══ HOW IT WORKS ═══ */
 .steps-section { background: #F8FAFC; }
@@ -215,7 +246,8 @@ footer {
     <h1>在 LINE 群組說話<br>翻譯<span>自動出現</span></h1>
     <p class="hero-sub">
       雇主說中文，移工看到印尼語<br>
-      <strong>不用切軟體、不用複製貼上、0 秒翻譯</strong>
+      <strong>不用切軟體、不用複製貼上、0 秒翻譯</strong><br>
+      <strong style="color: #06C755;">🆓 免費體驗 20 則翻譯，不綁卡立刻用</strong>
     </p>
     <div class="lang-tags">
       <span class="lang-tag">繁體中文</span>
@@ -299,15 +331,43 @@ footer {
   </div>
 </section>
 
-<!-- VIDEO DEMO -->
-<section class="demo-section">
+<!-- PRICING -->
+<section class="pricing-section">
   <div class="container">
-    <h2 class="section-title">看看實際怎麼用 🎬</h2>
-    <div class="demo-box">
-      <div class="demo-box-inner">
-        <div class="demo-play">▶️</div>
-        <div class="demo-label">操作示範影片</div>
-        <div class="demo-note">（影片製作中，敬請期待）</div>
+    <h2 class="section-title">免費體驗，滿意再升級 💰</h2>
+    <p class="section-desc">不綁信用卡、不需註冊，加入群組立刻開始翻譯</p>
+    <div class="pricing-grid">
+      <div class="price-card free">
+        <div class="price-badge">🆓 免費體驗</div>
+        <div class="price-amount">NT$0</div>
+        <div class="price-unit">每群組 20 則翻譯</div>
+        <ul class="price-features">
+          <li>✅ 加入群組就能用</li>
+          <li>✅ 文字即時翻譯</li>
+          <li>✅ 不需綁信用卡</li>
+        </ul>
+      </div>
+      <div class="price-card basic">
+        <div class="price-popular">最多人選擇</div>
+        <div class="price-badge">📌 基本方案</div>
+        <div class="price-amount">NT$299<span>/月</span></div>
+        <div class="price-unit">一天不到 $10，比一杯超商咖啡還便宜</div>
+        <ul class="price-features">
+          <li>✅ 每日 100 則文字翻譯</li>
+          <li>✅ 綁定 1 個群組</li>
+          <li>✅ 隨時可取消</li>
+        </ul>
+      </div>
+      <div class="price-card pro">
+        <div class="price-badge">⭐ 進階方案</div>
+        <div class="price-amount">NT$499<span>/月</span></div>
+        <div class="price-unit">不限量翻譯 + 語音翻譯</div>
+        <ul class="price-features">
+          <li>✅ 無限文字翻譯</li>
+          <li>✅ 語音訊息翻譯 🎤</li>
+          <li>✅ 綁定 1 個群組</li>
+          <li>✅ 隨時可取消</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -342,8 +402,8 @@ footer {
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
-    <h2>馬上體驗<br>無隔閡 0 秒溝通</h2>
-    <p class="cta-free">🆓 免費體驗 20 則翻譯，不需綁定信用卡</p>
+    <h2>免費體驗 20 則翻譯<br>感受零障礙溝通</h2>
+    <p class="cta-free">🆓 不需綁定信用卡，加入群組立刻開始<br>滿意再升級，基本方案一天不到 $10</p>
     <div class="qr-wrap">
       <img src="qrcode.png" alt="加入翻譯小幫手 LINE 好友 QR Code">
     </div>
@@ -352,13 +412,16 @@ footer {
       加入 LINE 好友，馬上開始！
     </p>
     <a href="https://lin.ee/O4hnLIk" target="_blank" rel="noopener noreferrer" class="cta-btn">
-      加入 LINE 好友 →
+      免費體驗，加入 LINE 好友 →
     </a>
-    <p class="cta-trust">已支援看護家庭、工廠、餐廳等場景<br>中文 · 印尼語 · 越南語 · 泰語 · English</p>
+    <p class="cta-trust">免費體驗 → 基本方案 NT$299/月（一天不到 $10）→ 進階 NT$499/月<br>中文 · 印尼語 · 越南語 · 泰語 · English</p>
   </div>
 </section>
 
-<footer>© 2026 翻譯小幫手 — LINE 群組即時翻譯<br>聯絡我們：<a href="mailto:chuanvm3@gmail.com" style="color:#6B7280;text-decoration:underline;">chuanvm3@gmail.com</a></footer>
+<footer>
+  <a href="/privacy" style="color:#9CA3AF;text-decoration:none;">隱私權政策</a> ｜ <a href="/terms" style="color:#9CA3AF;text-decoration:none;">服務條款</a><br>
+  © 2026 艾鐸有限公司 — 翻譯小幫手
+</footer>
 
 </body>
 </html>
