@@ -70,6 +70,11 @@
       padding: 48px 0 !important;
     }
 
+    /* FAQ list - remove fixed left margin on mobile */
+    .rwd-faq-list {
+      margin-left: 0 !important;
+    }
+
     /* Reduce inner container padding */
     .rwd-inner {
       padding: 0 20px !important;
@@ -1346,6 +1351,8 @@ requestAnimationFrame(() => {
     // Tag inner containers with 40px padding
     if (s.padding === '0 40px' || s.padding === '0px 40px')
       el.classList.add('rwd-inner');
+    // Tag FAQ container with marginLeft
+    if (s.marginLeft === '248px') el.classList.add('rwd-faq-list');
   });
   // Tag blockquotes
   document.querySelectorAll('#root blockquote').forEach(el => el.classList.add('rwd-quote'));
