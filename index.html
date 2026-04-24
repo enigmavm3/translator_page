@@ -25,6 +25,94 @@
   html, body { margin:0; padding:0; background:#fbf7ea; }
   * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; box-sizing: border-box; }
   button { font-family: inherit; }
+
+  /* ═══ MOBILE RWD ═══ */
+  @media (max-width: 768px) {
+    /* All grids → single column */
+    .rwd-grid {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+    }
+    /* Case 2-col needs more gap */
+    .rwd-2col { gap: 32px !important; }
+    /* Solution 3-col */
+    .rwd-3col { gap: 32px !important; }
+    /* Pricing 4-col */
+    .rwd-4col { gap: 16px !important; }
+
+    /* CTA box (QR + text + button) */
+    .rwd-cta {
+      padding: 28px 20px !important;
+      text-align: center !important;
+      gap: 24px !important;
+    }
+    .rwd-cta > div:first-child {
+      max-width: 160px !important;
+      margin: 0 auto !important;
+    }
+    .rwd-cta a {
+      width: 100% !important;
+      justify-content: center !important;
+      white-space: normal !important;
+    }
+
+    /* Footer grid → 2 col */
+    .rwd-footer {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 24px !important;
+    }
+    .rwd-footer > div:first-child {
+      grid-column: 1 / -1 !important;
+    }
+
+    /* Reduce section padding */
+    .rwd-bigpad {
+      padding: 48px 0 !important;
+    }
+
+    /* Reduce inner container padding */
+    .rwd-inner {
+      padding: 0 20px !important;
+    }
+
+    /* Header padding */
+    #root > article > header > div {
+      padding: 0 20px !important;
+    }
+
+    /* Footer padding */
+    #root > article > footer > div {
+      padding: 0 20px !important;
+    }
+
+    /* Hero section */
+    #root > article > section:first-of-type {
+      padding: 40px 20px 36px !important;
+    }
+
+    /* Font sizes */
+    #root h1 { font-size: 30px !important; }
+    #root h2 { font-size: 26px !important; }
+    .rwd-quote { font-size: 20px !important; }
+
+    /* Header title */
+    #root > article > header div[style*="letter-spacing: 0.1em"] {
+      font-size: 20px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #root h1 { font-size: 26px !important; }
+    #root h2 { font-size: 22px !important; }
+
+    .rwd-footer {
+      grid-template-columns: 1fr !important;
+    }
+
+    #root > article > header div[style*="letter-spacing: 0.1em"] {
+      font-size: 17px !important;
+    }
+  }
 </style>
 
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
@@ -515,7 +603,7 @@ function PartPricing({
       label: '語音訊息翻譯',
       ok: false
     }],
-    note: '自動月續約 · 可隨時取消'
+    note: '單次購買 · 可自動續約 · 隨時取消'
   }, {
     key: 'pro',
     name: '進階方案',
@@ -544,7 +632,7 @@ function PartPricing({
       label: '',
       ok: null
     }],
-    note: '自動月續約 · 可隨時取消'
+    note: '單次購買 · 可自動續約 · 隨時取消'
   }, {
     key: 'biz',
     name: '商用方案',
@@ -573,7 +661,7 @@ function PartPricing({
       label: '翻譯紀錄匯出（即將推出）',
       ok: true
     }],
-    note: '自動月續約 · 可隨時取消'
+    note: '單次購買 · 可自動續約 · 隨時取消'
   }];
   return /*#__PURE__*/React.createElement("section", {
     style: {
@@ -626,7 +714,7 @@ function PartPricing({
       maxWidth: 580,
       lineHeight: 1.8
     }
-  }, "\u6BCF\u500B LINE \u7FA4\u7D44\u90FD\u6709 20 \u5247\u514D\u8CBB\u7FFB\u8B6F\u3002\u89BA\u5F97\u597D\u7528\u4E86\u518D\u5347\u7D1A\uFF0C \u900F\u904E LINE Pay \u81EA\u52D5\u6708\u6263\u6B3E\uFF0C\u53EF\u96A8\u6642\u53D6\u6D88\u3002"))), /*#__PURE__*/React.createElement("div", {
+  }, "\u6BCF\u500B LINE \u7FA4\u7D44\u90FD\u6709 20 \u5247\u514D\u8CBB\u7FFB\u8B6F\u3002\u89BA\u5F97\u597D\u7528\u4E86\u518D\u5347\u7D1A\uFF0C\u55AE\u6B21\u8CFC\u8CB7 30 \u5929\u65B9\u6848\uFF0C\u53EF\u958B\u555F\u81EA\u52D5\u7E8C\u7D04\u6216\u96A8\u6642\u53D6\u6D88\u3002"))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(4, 1fr)',
@@ -743,7 +831,7 @@ function PartPricing({
     style: {
       color: t.ink
     }
-  }, "\u8A08\u8CBB\u8AAA\u660E\uFF1A"), "\u6BCF\u4EFD\u8A02\u95B1\u7D81\u5B9A 1 \u500B\u7FA4\u7D44\uFF08\u5546\u7528\u65B9\u6848\u6700\u591A 5 \u500B\uFF09\uFF0C\u7368\u7ACB\u8A08\u8CBB\u3001\u7368\u7ACB\u5230\u671F\u3002 \u4ED8\u8CBB\u65B9\u6848\u900F\u904E LINE Pay \u5B9A\u671F\u5B9A\u984D\u6263\u6B3E\uFF0C\u6BCF 30 \u5929\u81EA\u52D5\u7E8C\u7D04\uFF0C\u53EF\u5728\u300C\u6211\u7684\u7FA4\u7D44\u300D\u4E2D\u96A8\u6642\u53D6\u6D88\uFF1B \u53D6\u6D88\u5F8C\u670D\u52D9\u6301\u7E8C\u81F3\u7576\u671F\u7D50\u675F\u3002\u5347\u7D1A\u65B9\u6848\u6642\uFF0C\u820A\u65B9\u6848\u5269\u9918\u50F9\u503C\u5C07\u6309\u6BD4\u4F8B\u6298\u7B97\u70BA\u65B0\u65B9\u6848\u5929\u6578\u3002 \u8D85\u904E 5 \u500B\u7FA4\u7D44\u9700\u6C42\u8ACB\u4F86\u4FE1 ", /*#__PURE__*/React.createElement("a", {
+  }, "\u8A08\u8CBB\u8AAA\u660E\uFF1A"), "\u6BCF\u4EFD\u8A02\u95B1\u7D81\u5B9A 1 \u500B\u7FA4\u7D44\uFF08\u5546\u7528\u65B9\u6848\u6700\u591A 5 \u500B\uFF09\uFF0C\u7368\u7ACB\u8A08\u8CBB\u3001\u7368\u7ACB\u5230\u671F\u3002\u4ED8\u8CBB\u65B9\u6848\u900F\u904E LINE Pay \u55AE\u6B21\u8CFC\u8CB7 30 \u5929\uFF0C\u53EF\u958B\u555F\u81EA\u52D5\u7E8C\u7D04\uFF1B\u53EF\u5728\u300C\u6211\u7684\u7FA4\u7D44\u300D\u4E2D\u96A8\u6642\u53D6\u6D88\uFF0C\u53D6\u6D88\u5F8C\u670D\u52D9\u6301\u7E8C\u81F3\u7576\u671F\u7D50\u675F\u3002\u5347\u7D1A\u65B9\u6848\u6642\uFF0C\u820A\u65B9\u6848\u5269\u9918\u50F9\u503C\u5C07\u6309\u6BD4\u4F8B\u6298\u7B97\u70BA\u65B0\u65B9\u6848\u5929\u6578\u3002\u8D85\u904E 5 \u500B\u7FA4\u7D44\u9700\u6C42\u8ACB\u4F86\u4FE1 ", /*#__PURE__*/React.createElement("a", {
     href: "mailto:contact@triplehai.com",
     style: {
       color: t.accent,
@@ -817,10 +905,10 @@ function PartFAQ({
     a: '兩個差別：一是「在哪裡翻譯」——Google 翻譯要切換 App、複製貼上，很多長輩和新來的看護都卡在這一步。翻譯小幫手直接在 LINE 群組裡，不用切。二是「翻得準不準」——我們針對台灣雇傭現場的用詞（排班、量血壓、藥袋、加班費等）做過調校，這些詞 Google 翻譯常常出錯。'
   }, {
     q: '付款方式是什麼？會自動續訂嗎？',
-    a: '付費方案透過 LINE Pay 定期定額扣款，每 30 天自動續約一次。您可以在一對一聊天的「我的群組」中隨時取消自動續約，取消後服務持續至當期結束。我們不經手、也不儲存任何信用卡資訊，所有付款資料由 LINE Pay 處理。'
+    a: '付費方案為單次購買 30 天，購買後可選擇開啟自動續約。您可以在一對一聊天的「我的群組」中隨時取消自動續約，取消後服務持續至當期結束。我們不經手、也不儲存任何信用卡資訊，所有付款資料由 LINE Pay 處理。'
   }, {
     q: '付款後可以退款嗎？',
-    a: '付費方案一經開通，恕不退費。但您可以隨時取消自動續約，取消後服務持續至當前 30 天訂閱週期結束，到期後群組會自動降回免費方案。'
+    a: '付費方案一經開通，恕不退費。但您可以隨時取消自動續約，取消後服務持續至當前 30 天週期結束，到期後群組會自動降回免費方案。'
   }, {
     q: '隱私安全嗎？群組對話會被存下來嗎？',
     a: '訊息原文與譯文在翻譯完成後即捨棄，不會被儲存，也不會用於 AI 訓練。我們只保留語言組合、訊息類型等統計資訊用於計費。翻譯小幫手只讀取自己被加入的群組，不會讀取你手機裡的其他對話。完整內容請參閱隱私權政策。'
@@ -1236,6 +1324,32 @@ Object.assign(window, {
 ReactDOM.createRoot(document.getElementById('root')).render(
   React.createElement(LandingV1CFull)
 );
+
+// Post-render: add CSS classes for mobile RWD
+requestAnimationFrame(() => {
+  // Tag all grid containers
+  document.querySelectorAll('#root [style]').forEach(el => {
+    const s = el.style;
+    if (s.gridTemplateColumns) {
+      el.classList.add('rwd-grid');
+      const cols = s.gridTemplateColumns;
+      if (cols.includes('200px')) el.classList.add('rwd-sidebar');
+      if (cols.includes('repeat(2')) el.classList.add('rwd-2col');
+      if (cols.includes('repeat(3')) el.classList.add('rwd-3col');
+      if (cols.includes('repeat(4')) el.classList.add('rwd-4col');
+      if (cols.includes('auto')) el.classList.add('rwd-cta');
+      if (cols.includes('2fr')) el.classList.add('rwd-footer');
+    }
+    // Tag large-padding sections
+    if (s.padding && (s.padding.includes('96px') || s.padding.includes('120px') || s.padding.includes('48px 56px')))
+      el.classList.add('rwd-bigpad');
+    // Tag inner containers with 40px padding
+    if (s.padding === '0 40px' || s.padding === '0px 40px')
+      el.classList.add('rwd-inner');
+  });
+  // Tag blockquotes
+  document.querySelectorAll('#root blockquote').forEach(el => el.classList.add('rwd-quote'));
+});
 </script>
 </body>
 </html>
